@@ -15,7 +15,7 @@ public class Command{
 	protected String cmd,dir,page,view,colum,data;
 	protected Action action;
 //	protected Table table;
-	   
+	   //
 	protected MemberDTO member;
 	protected AccountDTO account;
 	protected AttendDTO attend;
