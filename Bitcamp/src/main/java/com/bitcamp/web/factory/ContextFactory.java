@@ -24,4 +24,5 @@ public class ContextFactory extends Factory{
 		logger.info("ContextFactory path()에 넘어온 tag 값은 {} 이다", tag);
 		return (String) create() + Constant.RESOURCE.toString() + tag;
 	}
+	
 }

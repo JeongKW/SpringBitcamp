@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../common/header.jsp" %>
-<%@ include file="../common/nav.jsp" %>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home</title>
+	<script src="${js}/jquery-3.3.1.min.js"></script>
+</head>
+<body>
 <div id="wrapper">
 	<section>
 		<table id="bitcamp_profile">
 			<tr>
-				<td id="profile_photo" rowspan="5"><img id="profile_img" src="${img}/default_profile.jpg" alt="" /></td>
+				<td id="profile_photo" rowspan="5"><img id="profile_img" src="" alt="" /></td>
 				<td class="profile_attr">ID</td>
-				<td class="profile_info">${sessionScope.user.id}</td>
+				<td class="profile_info"></td>
 				<td class="profile_attr">생년월일</td>
 				<td class="profile_info">
 					
@@ -18,13 +24,13 @@
 				<td class="profile_attr">PW</td>
 				<td class="profile_info"></td>
 				<td class="profile_attr">h.p</td>
-				<td class="profile_info">${sessionScope.user.phone.phoneNumber }</td>
+				<td class="profile_info"></td>
 			</tr>
 			<tr>
 				<td class="profile_attr">이름</td>
-				<td class="profile_info">${sessionScope.user.name }</td>
+				<td class="profile_info"></td>
 				<td class="profile_attr">이메일</td>
-				<td class="profile_info">${sessionScope.user.email }</td>
+				<td class="profile_info"></td>
 			</tr>
 			<tr>
 				<td class="profile_attr">성별</td>
@@ -32,30 +38,24 @@
 				
 				</td>
 				<td class="profile_attr">주소</td>
-				<td class="profile_info">${sessionScope.user.addr }</td>
+				<td class="profile_info"></td>
 			</tr>
 			<tr>
 				<td class="profile_attr">계좌번호</td>
-				<td class="profile_info">${sessionScope.user.account.accountNum}</td>
+				<td class="profile_info"></td>
 				<td class="profile_attr"></td>
 				<td class="profile_info"></td>
 			</tr>
 		</table>
 		<button id="mypage_ch">수 정</button>
 		<button id="mypage_rm">탈 퇴</button>
-		<button id="mypage_test">테스트</button>
+		<button id="nav_move">이 동</button>
 	</section>
 </div>
-<%@ include file="../common/footer.jsp" %>
+</body>
 <script>
-	document.querySelector('#mypage_ch').addEventListener("click", function(){
-		location.href = "${ctx}/user.do?cmd=move&page=changepw";
-	}, false);
-	document.querySelector('#mypage_rm').addEventListener('click', function(){
-		location.href = "${ctx}/user.do?cmd=move&page=deletemember";
-	}, false);
-	document.querySelector('#mypage_test').addEventListener('click', function(){
-		location.href = "${ctx}/user.do?cmd=move&page=changepw2";
-	}, false);
+	$('#nav_move').on('click', function(){
+		location.href = "${context}/nav";
+	});
 </script>
 </html>

@@ -7,6 +7,7 @@ import com.bitcamp.web.domain.LottoDTO;
 import com.bitcamp.web.domain.MemberDTO;
 import com.bitcamp.web.domain.MobileDTO;
 import com.bitcamp.web.enums.Action;
+import com.bitcamp.web.enums.Table;
 
 import lombok.Data;
 
@@ -14,7 +15,7 @@ import lombok.Data;
 public class Command{
 	protected String cmd,dir,page,view,colum,data;
 	protected Action action;
-//	protected Table table;
+	protected Table table;
 	   
 	protected MemberDTO member;
 	protected AccountDTO account;

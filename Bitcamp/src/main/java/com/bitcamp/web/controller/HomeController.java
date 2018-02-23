@@ -1,7 +1,5 @@
 package com.bitcamp.web.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -17,16 +15,15 @@ import com.bitcamp.web.factory.ContextFactory;
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	@Autowired ContextFactory contextFactory;
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-	
-		model.addAttribute("serverTime", new SimpleDateFormat("yyyy년 MM월 dd일 hh:mm").format(new Date()));
 		model.addAttribute("context", (String) contextFactory.create());
-		
 		return "index";
 	}
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Model model) {
 		logger.info("Move to {} ", "main/home");
@@ -34,6 +31,6 @@ public class HomeController {
 		model.addAttribute("js", contextFactory.path("js"));
 		model.addAttribute("css", contextFactory.path("css"));
 		model.addAttribute("img", contextFactory.path("img"));
-		return "main/home";
+		return "public:main/home.tiles";
 	}
 }
