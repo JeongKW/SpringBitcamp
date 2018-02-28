@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.bitcamp.web.domain.LottoDTO;
 import com.bitcamp.web.service.LottoService;
 @Service
-public class LottoServiceImpl implements LottoService{
+public class LottoServiceImpl implements LottoService{ //
 	private static final Logger logger = LoggerFactory.getLogger(LottoServiceImpl.class);
 	@Autowired LottoDTO lotto;
 	@Override
@@ -20,13 +20,13 @@ public class LottoServiceImpl implements LottoService{
 		if(Integer.parseInt(lotto.getMoney()) < 100000) {
 			lotto.setCount(String.valueOf(Integer.parseInt(lotto.getMoney())/1000));
 		}
-		
 		return lotto;
 	}
 
 	@Override
 	public LottoDTO createLotto() {
 		int[] lottoNums = new int[6];
+		LottoDTO lotto = new LottoDTO();
 		String temp = "";
 		for(int i = 0; i < lottoNums.length; i++) {
 			lottoNums[i] = (int)(Math.random()*45 + 1);
@@ -46,6 +46,7 @@ public class LottoServiceImpl implements LottoService{
 			temp += (i != (lottoNums.length - 1)) ? lottoNums[i] + "," : lottoNums[i];  
 		}
 		lotto.setLottoNumber(temp);
+		logger.info("createLotto is {}", lotto.getLottoNumber());
 		return lotto;
 	}
 
@@ -56,6 +57,9 @@ public class LottoServiceImpl implements LottoService{
 			list.add(createLotto());
 			logger.info("arraylist elements is {}", list.get(i).getLottoNumber());
 		}
+		logger.info("ArrayList 0 is {}", list.get(0).getLottoNumber());
+		logger.info("ArrayList 1 is {}", list.get(1).getLottoNumber());
+		logger.info("Size of ArrayList is {}", list.size());
 		return list;
 	}
 }

@@ -1,7 +1,5 @@
 package com.bitcamp.web.controller;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +34,8 @@ public class UserController {
 		logger.info("UserController lotto() {}", "Entered");
 		logger.info("Money is ￦{}", money);
 		lotto.setMoney(money);
-		List<LottoDTO> lottos = service.createLottos(lotto);
 		logger.info("Count is {}", lotto.getCount());
-		logger.info("LottoNumber is {}", lottos);		
-		model.addAttribute("lottos", lottos);
+		model.addAttribute("lottos", service.createLottos(lotto));
 		model.addAttribute("money", money);
 		return "public:lotto/main.tiles";
 	}
