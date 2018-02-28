@@ -18,7 +18,7 @@ public class LottoServiceImpl implements LottoService{
 	@Override
 	public LottoDTO findLottoCount(LottoDTO param) {
 		if(Integer.parseInt(lotto.getMoney()) < 100000) {
-			lotto.setCount(String.valueOf(Integer.parseInt(lotto.getMoney())/1000));
+			lotto.setCount(String.valueOf(Integer.parseInt(lotto.getMoney())/1000)); //
 		}
 		return lotto;
 	}
