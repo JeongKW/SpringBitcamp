@@ -15,7 +15,7 @@
 				"jdbc:oracle:thin:@localhost:1521:xe", "bitcamp", "bitcamp");
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("SELECT * FROM tab");
-		List<String> list = new ArrayList<>();
+		List<String> list = new ArrayList();
 		while(rs.next()){
 			String temp = rs.getString("TNAME");
 			list.add(temp);
