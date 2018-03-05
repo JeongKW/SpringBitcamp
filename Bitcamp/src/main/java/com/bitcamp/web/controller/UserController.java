@@ -34,8 +34,8 @@ public class UserController {
 		logger.info("UserController lotto() {}", "Entered");
 		logger.info("Money is ￦{}", money);
 		lotto.setMoney(money);
-		logger.info("Count is {}", lotto.getCount());
 		model.addAttribute("lottos", service.createLottos(lotto));
+		logger.info("Count is {}", lotto.getCount());
 		model.addAttribute("money", money);
 		return "public:lotto/main.tiles";
 	}

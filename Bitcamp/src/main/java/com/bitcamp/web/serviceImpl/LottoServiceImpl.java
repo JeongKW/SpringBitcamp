@@ -25,25 +25,12 @@ public class LottoServiceImpl implements LottoService{ //
 
 	@Override
 	public LottoDTO createLotto() {
-		int[] lottoNums = new int[6];
 		LottoDTO lotto = new LottoDTO();
 		String temp = "";
-		for(int i = 0; i < lottoNums.length; i++) {
-			lottoNums[i] = (int)(Math.random()*45 + 1);
-			if(i == 0) {
-				continue;
-			} else {
-				for(int j = 0; j < i; j++) {
-					if(lottoNums[j] == lottoNums[i]) {
-						i--;
-						break;
-					}
-				}
-			}
-		}
+		int[] lottoNums = createLottoNum();
 		Arrays.sort(lottoNums);
 		for(int i = 0; i < lottoNums.length; i++) {
-			temp += (i != (lottoNums.length - 1)) ? lottoNums[i] + "," : lottoNums[i];  
+			temp += (i != (lottoNums.length - 1)) ? lottoNums[i] + "," : lottoNums[i];
 		}
 		lotto.setLottoNumber(temp);
 		logger.info("createLotto is {}", lotto.getLottoNumber());
@@ -57,9 +44,27 @@ public class LottoServiceImpl implements LottoService{ //
 			list.add(createLotto());
 			logger.info("arraylist elements is {}", list.get(i).getLottoNumber());
 		}
-		logger.info("ArrayList 0 is {}", list.get(0).getLottoNumber());
-		logger.info("ArrayList 1 is {}", list.get(1).getLottoNumber());
+		logger.info("ArrayList is {}", list);
 		logger.info("Size of ArrayList is {}", list.size());
 		return list;
+	}
+
+	@Override
+	public int[] createLottoNum() {
+		int[] tempNums = new int[6];
+		for(int i = 0; i < tempNums.length; i++) {
+			tempNums[i] = (int)(Math.random()*45 + 1);
+			if(i == 0) {
+				continue;
+			} else {
+				for(int j = 0; j < i; j++) {
+					if(tempNums[j] == tempNums[i]) {
+						i--;
+						break;
+					}
+				}
+			}
+		}
+		return tempNums;
 	}
 }

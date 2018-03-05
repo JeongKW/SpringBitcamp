@@ -8,6 +8,7 @@ import com.bitcamp.web.domain.LottoDTO;
 @Component
 public interface LottoService {
 	public LottoDTO findLottoCount(LottoDTO param);
+	public int[] createLottoNum();
 	public LottoDTO createLotto();
 	public List<LottoDTO> createLottos(LottoDTO param);
 }
