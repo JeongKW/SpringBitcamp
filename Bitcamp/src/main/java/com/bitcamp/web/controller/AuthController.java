@@ -22,4 +22,8 @@ public class AuthController {
 		logger.info("AuthController login() {} ", "Entered");
 		return "public:user/login.tiles";
 	}
+	@RequestMapping("/join")
+	public String join(Model model) {
+		return "public:user/join.tiles";
+	}
 }

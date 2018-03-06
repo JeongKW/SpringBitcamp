@@ -14,7 +14,6 @@
        <put-attribute name="header"
           value="/WEB-INF/views/common/header.jsp"/>
        <put-attribute name="content"
-          value="/WEB-INF/views/{1}/{2}.jsp"
-       />
+          value="/WEB-INF/views/{1}/{2}.jsp"/>
     </definition>
 </tiles-definitions>

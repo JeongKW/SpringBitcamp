@@ -19,17 +19,15 @@
        <tiles:insertAttribute name="header"/>
       </div>
    </header>
-   <section >
-      <article id="content">
+   <section>
+      <div id="content">
          <tiles:insertAttribute name="content"/>
-      </article>
-      
+      </div>
    </section>
    <footer>
-      <div style="margin-bottom: 20px">
-         <tiles:insertAttribute name="footer"/>    
-      </div>
+   	 <div id="footer">
+        <tiles:insertAttribute name="footer"/>    
+   	 </div>
    </footer>
 </body>
- 
 </html>

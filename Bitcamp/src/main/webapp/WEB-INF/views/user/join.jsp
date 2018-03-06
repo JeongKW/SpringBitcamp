@@ -9,12 +9,11 @@
 		</header>
 		<section id="input_section">
 			<article>
-				<form id="member_form" action="${ctx}/user.do">
 					<table>
 						<tr>
 							<td id="memtype_td">ID </td>
 							<td colspan="2">
-								<input id="join_id" name="id" type="text" />
+								<input id="join_id" type="text" />
 								<button id="check_dupl_btn" name="check_dupl_btn">중복확인</button>
 							</td>
 						</tr>
@@ -33,7 +32,7 @@
 						<tr>
 							<td id="memtype_td">이름</td>
 							<td colspan="2">
-								<input type="text" name="name" title="2~4자의 이름을 입력해주세요" />
+								<input id="join_name" type="text" name="name" title="2~4자의 이름을 입력해주세요" />
 							</td>
 						</tr>
 						<tr>
@@ -86,22 +85,18 @@
 							<td><input type="text" name="profile"/><button>사진 선택</button></td>
 						</tr>
 					</table>
-					<input type="hidden" name="cmd" value="join"/>
-					<input type="hidden" name="page" value="login"/>
-					<input type="hidden" name="dir" value="user" />
-				</form>
 			</article>
 		</section>
 		<section id="confirm_section">
 			<button id="join_confirm_btn">확인</button>&nbsp;<button>취소</button>
 		</section>
 	</div>
-<%@ include file="../common/footer.jsp" %>
 <script>
-	document.querySelector('#join_confirm_btn').addEventListener('click', 
-		function () {
-			document.querySelector('#member_form').submit();
-		}, false);
-	
+	$('#join_confirm_btn').on('click', function(){
+		var id = $('#join_id').val();
+		var pw = $('#join_pw').val();
+		var name = $('#join_name').val();
+		location.href = "${path.ctx}/join/"+ id +"/"+ pw + "/" + name;
+	});
 </script>
 </html>

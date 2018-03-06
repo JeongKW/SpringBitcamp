@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="${path.css}/style.css" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style>
 .navbar-brand {
 	padding: 0px;
@@ -37,19 +37,35 @@
 						class="glyphicon glyphicon-envelope" aria-hidden="true">&nbsp;MAIL
 					</span>
 				</a></li>
-				<!-- MAIL END -->
-				<li><a id="a-login" href="#"> <span
-						class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;LOGIN
-					</span>
-				</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">유틸리티<span class="caret"></span>
-				</a>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<c:choose>
+				<c:when test="${user eq null}">
+					<li>
+						<a id="a-login" href="#"> 
+							<span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;LOGIN</span>
+						</a>
+					</li>
+					<li>
+						<a id="a-join" href="#">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true">&nbsp;JOIN</span>
+						</a>
+					</li>
+				</c:when>
+				<c:otherwise>
+					<li>
+						<a id="a-logout" href="#">
+							<span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;LOGOUT</span>
+						</a>
+					</li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">유틸리티<span class="caret"></span></a>
 					<ul id="ul-util">
 						<li><a>로또</a></li>
 						<li><a>햄버거주문</a></li>
+						<li><a>모바일</a></li>
 					</ul></li>
+				</c:otherwise>
+				</c:choose>
 			</ul>
 		</div>
 	</div>
@@ -60,12 +76,21 @@
 	$('#a-login').on('click', function() {
 		location.href = "${path.ctx}/login";
 	});
+	$('#a-logout').on('click', function() {
+		location.href = "${path.ctx}/logout";
+	});
+	$('#a-join').on('click', function(){
+		location.href = "${path.ctx}/join";
+	});
 	var $ulUtil = $("#ul-util");
 	$ulUtil.addClass("dropdown-menu");
 	$('.dropdown-menu a').eq(0).on('click', function() {
 		location.href = "${path.ctx}/lotto";
-	})
+	});
 	$('.dropdown-menu a').eq(1).on('click', function() {
 		location.href = "${path.ctx}/burgerking";
-	})
+	});
+	$('.dropdown-menu a').eq(2).on('click', function() {
+		location.href = "${path.ctx}/mobile";
+	});
 </script>
