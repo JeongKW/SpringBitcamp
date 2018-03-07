@@ -7,9 +7,10 @@ import lombok.Data;
 @Component
 @Data
 public class MemberDTO {
-	private String id, pw, name, ssn, email, profile, addr;
+	private String id, pw, name, ssn, email, phone, profile, addr;
 	private AccountDTO account;
-	private MobileDTO phone;
+	private MobileDTO mobile;
+	private UserPhoneDTO userPhone;
 	private FoodDTO food;
 	private AttendDTO attend;
 	private LottoDTO lotto;

@@ -3,9 +3,8 @@ package com.bitcamp.web.domain;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
-
 @Component
 @Data
-public class MobileDTO {
-	private String seq, model, thumbnail;
+public class UserPhoneDTO {
+	private String phoneid, id, seq, phoneNumber, telecom;
 }

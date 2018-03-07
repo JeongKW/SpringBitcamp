@@ -8,6 +8,7 @@ import com.bitcamp.web.domain.FoodDTO;
 import com.bitcamp.web.domain.LottoDTO;
 import com.bitcamp.web.domain.MemberDTO;
 import com.bitcamp.web.domain.MobileDTO;
+import com.bitcamp.web.domain.UserPhoneDTO;
 import com.bitcamp.web.enums.Action;
 
 import lombok.Data;
@@ -25,4 +26,5 @@ public class Command{
 	protected LottoDTO lotto;
 	protected FoodDTO food;
 	protected MobileDTO mobile;
+	protected UserPhoneDTO userPhone;
 }

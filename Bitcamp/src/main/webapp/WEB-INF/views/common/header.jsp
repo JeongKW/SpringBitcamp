@@ -74,23 +74,23 @@
 </nav>
 <script>
 	$('#a-login').on('click', function() {
-		location.href = "${path.ctx}/login";
+		location.href = "${path.ctx}/move/user/login";
 	});
 	$('#a-logout').on('click', function() {
 		location.href = "${path.ctx}/logout";
 	});
 	$('#a-join').on('click', function(){
-		location.href = "${path.ctx}/join";
+		location.href = "${path.ctx}/move/user/join";
 	});
 	var $ulUtil = $("#ul-util");
 	$ulUtil.addClass("dropdown-menu");
 	$('.dropdown-menu a').eq(0).on('click', function() {
-		location.href = "${path.ctx}/lotto";
+		location.href = "${path.ctx}/move/lotto/main";
 	});
 	$('.dropdown-menu a').eq(1).on('click', function() {
-		location.href = "${path.ctx}/burgerking";
+		location.href = "${path.ctx}/move/burgerking/main";
 	});
 	$('.dropdown-menu a').eq(2).on('click', function() {
-		location.href = "${path.ctx}/mobile";
+		location.href = "${path.ctx}/move/mobile/main";
 	});
 </script>
