@@ -14,9 +14,8 @@
 				<td class="profile_attr">PW</td>
 				<td class="profile_info"></td>
 				<td class="profile_attr">h.p</td>
-				<td class="profile_info">
-					<a id="mobile_btn" href="#">개통하러가기</a>
-					${tx.phoneNumber}
+				<td id="td-phone" class="profile_info">
+					
 				</td>
 			</tr>
 			<tr>
@@ -44,7 +43,13 @@
 	</div>
 </div>
 <script>
+$(function(){
+	$('#td-phone').html(
+		('${tx.id}' === '${user.id}' && '${tx.phoneNumber}') ? '${tx.phoneNumber}' : '<a id="mobile_btn" href="#">개통하러가기</a>'
+	);
+	
 	$('#mobile_btn').on('click', function() {
 		location.href = "${path.ctx}/mobile/page";
 	});
+});
 </script>

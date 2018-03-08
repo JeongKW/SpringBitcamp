@@ -14,12 +14,14 @@ import com.bitcamp.web.command.Command;
 import com.bitcamp.web.domain.MemberDTO;
 import com.bitcamp.web.factory.ShiftFactory;
 import com.bitcamp.web.service.MemberService;
+import com.bitcamp.web.service.TxService;
 
 @SessionAttributes("user")
 @Controller
 public class AuthController {
 	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 	@Autowired MemberService mService;
+	@Autowired TxService tService;
 	@Autowired MemberDTO member;
 	@Autowired ShiftFactory shift;
 	@Autowired Command cmd;
@@ -40,6 +42,7 @@ public class AuthController {
 		String path = shift.create("user", "login");
 		if(mService.exist(cmd)) {
 			model.addAttribute("user", mService.findById(cmd));
+			model.addAttribute("tx", tService.findById(cmd));
 			path = shift.create("user", "mypage");
 		}
 		return path;

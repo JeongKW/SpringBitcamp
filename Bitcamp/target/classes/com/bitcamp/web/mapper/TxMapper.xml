@@ -13,7 +13,7 @@
 		SELECT COUNT(*) FROM Tx;
 	</select>
 	<select id="selectTxById" resultType="Tx" parameterType="cmd">
-		SELECT * FROM Tx WHERE tx_key like #{tx.txKey}
+		SELECT * FROM Tx WHERE id like #{member.id}
 	</select>
 	<insert id="insertTx" parameterType="cmd">
 		INSERT INTO Tx VALUES (#{tx.txKey}, 

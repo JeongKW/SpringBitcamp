@@ -66,31 +66,40 @@
 					</ul></li>
 				</c:otherwise>
 				</c:choose>
+				<li>
+					<a id="a-board" href="#">
+						<span class="glyphicon glyphicon-plus-sign" aria-hidden="true">&nbsp;Board</span>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
-	<!--/.nav-collapse -->
-	<!-- LOGIN END -->
 </nav>
 <script>
-	$('#a-login').on('click', function() {
-		location.href = "${path.ctx}/move/user/login";
+	$('#a-login').click()=>{
+		move("user/login");
 	});
-	$('#a-logout').on('click', function() {
-		location.href = "${path.ctx}/logout";
+	$('#a-logout').click()=>{
+		move("logout");
 	});
-	$('#a-join').on('click', function(){
-		location.href = "${path.ctx}/move/user/join";
+	$('#a-join').click()=>{
+		move("user/join");
+	});
+	$('#a-board').click()=>{{
+		move();
 	});
 	var $ulUtil = $("#ul-util");
 	$ulUtil.addClass("dropdown-menu");
-	$('.dropdown-menu a').eq(0).on('click', function() {
-		location.href = "${path.ctx}/move/lotto/main";
+	$('.dropdown-menu a').eq(0).click()=>{
+		move("lotto/main");
 	});
-	$('.dropdown-menu a').eq(1).on('click', function() {
-		location.href = "${path.ctx}/move/burgerking/main";
+	$('.dropdown-menu a').eq(1).click()=>{
+		move("burgerking/main");
 	});
-	$('.dropdown-menu a').eq(2).on('click', function() {
-		location.href = "${path.ctx}/move/mobile/main";
+	$('.dropdown-menu a').eq(2).click()=>{
+		move("mobile/main");
 	});
+	function move(x){
+		location.href = "${path.ctx}/move/" + x;
+	}
 </script>
