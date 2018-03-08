@@ -8,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.bitcamp.web.command.Command;
 import com.bitcamp.web.domain.MobileDTO;
 import com.bitcamp.web.factory.ShiftFactory;
 import com.bitcamp.web.service.MobileService;
 
-@SessionAttributes("user")
 @Controller
 public class MobileController {
 	private static final Logger logger = LoggerFactory.getLogger(MobileController.class);
@@ -25,7 +23,7 @@ public class MobileController {
 	@RequestMapping("/mobile/page")
 	public String page(Model model) {
 		logger.info("MobileController page() is {}", "entered");
-		List<MobileDTO> phones = service.phones();
+		List<MobileDTO> phones = service.list();
 		model.addAttribute("phones", phones);
 		return shift.create("mobile", "main");
 	}

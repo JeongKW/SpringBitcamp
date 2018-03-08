@@ -15,7 +15,7 @@
 				<label for="sel2">모델 리스트 (하나만 골라주세요):</label> <select
 					class="form-control" name="seq" id="seq">
 					<c:forEach items="${phones}" var="phone">
-						<option value="${phone.seq}">${phone.model}</option>
+						<option value="${phone.mobileSeq}">${phone.model}</option>
 					</c:forEach>
 				</select>
 			</div>

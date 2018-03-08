@@ -4,7 +4,7 @@
 		<table id="bitcamp_profile">
 			<tr>
 				<td id="profile_photo" rowspan="5"><img id="profile_img"
-					src="${img}/default_profile.jpg" alt="" /></td>
+					src="${path.img}/default_profile.jpg" alt="" /></td>
 				<td class="profile_attr">ID</td>
 				<td class="profile_info">${user.id}</td>
 				<td class="profile_attr">생년월일</td>
@@ -15,13 +15,9 @@
 				<td class="profile_info"></td>
 				<td class="profile_attr">h.p</td>
 				<td class="profile_info">
-				<c:choose>
-						<c:when test="${userphone.phoneNumber == null}">
-							<a id="mobile_btn" href="#">개통하러가기</a>
-						</c:when>
-					</c:choose> <c:otherwise>
-						${userphone.phoneNumber}
-					</c:otherwise></td>
+					<a id="mobile_btn" href="#">개통하러가기</a>
+					${tx.phoneNumber}
+				</td>
 			</tr>
 			<tr>
 				<td class="profile_attr">이름</td>

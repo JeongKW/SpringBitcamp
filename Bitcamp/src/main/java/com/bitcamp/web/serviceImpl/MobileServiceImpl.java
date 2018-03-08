@@ -16,19 +16,47 @@ import com.bitcamp.web.service.MobileService;
 public class MobileServiceImpl implements MobileService{
 	private static final Logger logger = LoggerFactory.getLogger(MobileServiceImpl.class);
 	@Autowired MobileMapper mapper;
-	@Override
-	public void openMobile(Command cmd) {
-		mapper.openMobile(cmd);
-	}
+//	@Override
+//	public void openMobile(Command cmd) {
+//		mapper.openMobile(cmd);
+//	}
+//
+//	@Override
+//	public MobileDTO findMobileById(Command cmd) {
+//		return mapper.findMobileById(cmd);
+//	}
+//
+//	@Override
+//	public List<MobileDTO> phones() {
 
+//	}
 	@Override
-	public MobileDTO findMobileById(Command cmd) {
-		return mapper.findMobileById(cmd);
+	public void addMobile(Command cmd) {
+		mapper.insertMobile(cmd);
 	}
-
 	@Override
-	public List<MobileDTO> phones() {
+	public void modifyMobile(Command cmd) {
+		
+	}
+	@Override
+	public void removeMobile(Command cmd) {
+		
+	}
+	@Override
+	public List<MobileDTO> list() {
 		logger.info("MobileServiceImpl phones() is {}", "Entered");
-		return mapper.phones();
+		return mapper.selectAll();
+	}
+	@Override
+	public List<MobileDTO> findByName(Command cmd) {
+		return null;
+	}
+	@Override
+	public MobileDTO findById(Command cmd) {
+		return null;
+	}
+	@Override
+	public int count() {
+		return 0;
 	}
 }

@@ -7,5 +7,5 @@ import lombok.Data;
 @Component
 @Data
 public class MobileDTO {
-	private String seq, model, thumbnail;
+	private String mobileSeq, model, thumbnail;
 }

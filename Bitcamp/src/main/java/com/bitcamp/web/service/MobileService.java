@@ -8,7 +8,11 @@ import com.bitcamp.web.command.Command;
 import com.bitcamp.web.domain.MobileDTO;
 @Component
 public interface MobileService {
-	public void openMobile(Command cmd);
-	public MobileDTO findMobileById(Command cmd);
-	public List<MobileDTO> phones();
+	public void addMobile(Command cmd);
+	public void modifyMobile(Command cmd);
+	public void removeMobile(Command cmd);
+	public List<MobileDTO> list();
+	public List<MobileDTO> findByName(Command cmd);
+	public MobileDTO findById(Command cmd);
+	public int count();
 }

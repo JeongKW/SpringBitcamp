@@ -3,7 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bitcamp.web.mapperImpl.MobileMapperImpl">
-	<select id="list" resultType="mobile">
-		SELECT * FROM Mobile
+	<select id="selectMobileAll" resultType="mobile">
+		SELECT mobile_seq AS mobileSeq, thumbnail, model FROM Mobile
 	</select>
+	<select id="selectMobileByName" resultType="mobile" parameterType="cmd">
+		
+	</select>
+	<select id="countMobile" resultType="int" parameterType="cmd">
+		SELECT COUNT(*) FROM Mobile;
+	</select>
+	<select id="selectMobileById" resultType="mobile" parameterType="cmd">
+		
+	</select>
+	<insert id="insertMobile" parameterType="cmd">
+	
+	</insert>
+	<delete id="deleteMobile" parameterType="cmd">
+	
+	</delete>
+	<update id="updateMobile" parameterType="cmd">
+	
+	</update>
 </mapper>

@@ -10,9 +10,7 @@ public class MemberDTO {
 	private String id, pw, name, ssn, email, phone, profile, addr;
 	private AccountDTO account;
 	private MobileDTO mobile;
-	private UserPhoneDTO userPhone;
 	private FoodDTO food;
-	private AttendDTO attend;
 	private LottoDTO lotto;
 	
 	@Override

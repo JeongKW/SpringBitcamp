@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitcamp.web.mapperImpl.FoodMapperImpl">
+	<select id="selectFoodAll" resultType="food">
+		SELECT * FROM Food
+	</select>
+	<select id="selectFoodByName" resultType="food" parameterType="cmd">
+		SELECT * FROM Food
+	</select>
+	<select id="countFood" resultType="int" parameterType="cmd">
+		SELECT COUNT(*) FROM Food;
+	</select>
+	<select id="selectFoodById" resultType="food" parameterType="cmd">
+		
+	</select>
+	<insert id="insertFood" parameterType="cmd">
+	
+	</insert>
+	<delete id="deleteFood" parameterType="cmd">
+	
+	</delete>
+	<update id="updateFood" parameterType="cmd">
+	
+	</update>
+</mapper>

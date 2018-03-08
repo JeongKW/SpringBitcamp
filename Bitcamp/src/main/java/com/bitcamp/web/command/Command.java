@@ -3,12 +3,13 @@ package com.bitcamp.web.command;
 import org.springframework.stereotype.Component;
 
 import com.bitcamp.web.domain.AccountDTO;
-import com.bitcamp.web.domain.AttendDTO;
+import com.bitcamp.web.domain.AdminDTO;
+import com.bitcamp.web.domain.BoardDTO;
 import com.bitcamp.web.domain.FoodDTO;
 import com.bitcamp.web.domain.LottoDTO;
 import com.bitcamp.web.domain.MemberDTO;
 import com.bitcamp.web.domain.MobileDTO;
-import com.bitcamp.web.domain.UserPhoneDTO;
+import com.bitcamp.web.domain.TxDTO;
 import com.bitcamp.web.enums.Action;
 
 import lombok.Data;
@@ -22,9 +23,10 @@ public class Command{
 	   
 	protected MemberDTO member;
 	protected AccountDTO account;
-	protected AttendDTO attend;
 	protected LottoDTO lotto;
 	protected FoodDTO food;
 	protected MobileDTO mobile;
-	protected UserPhoneDTO userPhone;
+	protected TxDTO tx;
+	protected BoardDTO board;
+	protected AdminDTO admin;
 }

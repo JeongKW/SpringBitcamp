@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitcamp.web.mapperImpl.AdminMapperImpl">
+	<select id="selectAdminAll" resultType="admin">
+		SELECT * FROM Admin
+	</select>
+	<select id="selectAdminByName" resultType="admin" parameterType="cmd">
+	
+	</select>
+	<select id="countAdmin" resultType="int" parameterType="cmd">
+		SELECT COUNT(*) FROM Admin;
+	</select>
+	<select id="selectAdminById" resultType="admin" parameterType="cmd">
+		
+	</select>
+	<insert id="insertAdmin" parameterType="cmd">
+	
+	</insert>
+	<delete id="deleteAdmin" parameterType="cmd">
+	
+	</delete>
+	<update id="updateAdmin" parameterType="cmd">
+	
+	</update>
+</mapper>

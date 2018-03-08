@@ -24,7 +24,7 @@ public class UserController {
 		logger.info("UserController lotto() {}", "Entered");
 		logger.info("Money is ￦{}", money);
 		lotto.setMoney(money);
-		model.addAttribute("lottos", service.createLottos(lotto));
+//		model.addAttribute("lottos", service.createLottos(lotto));
 		logger.info("Count is {}", lotto.getCount());
 		model.addAttribute("money", money);
 		return shift.create("lotto", "main");

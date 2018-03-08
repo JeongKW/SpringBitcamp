@@ -2,14 +2,24 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
 <mapper namespace="com.bitcamp.web.mapperImpl.MemberMapperImpl">
-	<select id="selectMemberById" resultType="member" parameterType="cmd">
-		SELECT * FROM Member WHERE id LIKE #{member.id}
-	</select>
 	<select id="exist" resultType="int" parameterType="cmd">
 		SELECT COUNT(*) FROM Member WHERE id LIKE #{member.id} AND pw LIKE #{member.pw}
 	</select>
-	<insert id="insertMember" parameterType="cmd">
+	<select id="selectMemberAll" resultType="member">
+		SELECT * FROM Member
+	</select>
+	<select id="selectMemberByName" resultType="member" parameterType="cmd">
+		SELECT * FROM Member
+	</select>
+	<select id="countMember" resultType="int" parameterType="cmd">
+		SELECT COUNT(*) FROM Member;
+	</select>
+	<select id="selectMemberById" resultType="member" parameterType="cmd">
+		SELECT * FROM Member WHERE id LIKE #{member.id}
+	</select>
+		<insert id="insertMember" parameterType="cmd">
 		INSERT INTO Member VALUES (#{member.id}, #{member.pw}, #{member.name},
 		<choose>
         <when test="member.ssn == null">
@@ -53,6 +63,9 @@
 	    </choose>)
 	</insert>
 	<delete id="deleteMember" parameterType="cmd">
-		
+	
 	</delete>
+	<update id="updateMember" parameterType="cmd">
+	
+	</update>
 </mapper>

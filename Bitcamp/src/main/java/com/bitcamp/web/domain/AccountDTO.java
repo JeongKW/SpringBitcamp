@@ -1,7 +1,9 @@
 package com.bitcamp.web.domain;
 
-import lombok.Data;
+import org.springframework.stereotype.Component;
 
+import lombok.Data;
+@Component
 @Data
 public class AccountDTO {
 	private String customNum, accountNum, money;

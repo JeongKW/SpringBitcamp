@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitcamp.web.mapperImpl.BoardMapperImpl">
+	<select id="selectBoardAll" resultType="board">
+		SELECT * FROM Board
+	</select>
+	<select id="selectBoardByName" resultType="board" parameterType="cmd">
+		SELECT * FROM Board
+	</select>
+	<select id="countBoard" resultType="int" parameterType="cmd">
+		SELECT COUNT(*) FROM Board;
+	</select>
+	<select id="selectBoardById" resultType="board" parameterType="cmd">
+		
+	</select>
+	<insert id="insertBoard" parameterType="cmd">
+	
+	</insert>
+	<delete id="deleteBoard" parameterType="cmd">
+	
+	</delete>
+	<update id="updateBoard" parameterType="cmd">
+	
+	</update>
+</mapper>

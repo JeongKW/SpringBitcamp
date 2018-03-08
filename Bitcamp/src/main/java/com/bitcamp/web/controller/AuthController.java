@@ -39,7 +39,7 @@ public class AuthController {
 		cmd.setMember(member);
 		String path = shift.create("user", "login");
 		if(mService.exist(cmd)) {
-			model.addAttribute("user", mService.findMemberById(cmd));
+			model.addAttribute("user", mService.findById(cmd));
 			path = shift.create("user", "mypage");
 		}
 		return path;
@@ -56,7 +56,7 @@ public class AuthController {
 		if(mService.exist(cmd)) {
 			path = shift.create("user", "join");
 		} else {
-			mService.insertMember(cmd);
+			mService.addMember(cmd);
 		}
 		return path;
 	}
