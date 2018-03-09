@@ -16,4 +16,8 @@
        <put-attribute name="content"
           value="/WEB-INF/views/{1}/{2}.jsp"/>
     </definition>
+    <definition name="index:index.tiles" extends="public">
+       <put-attribute name="content"
+          value="/WEB-INF/views/index.jsp"/>
+    </definition>
 </tiles-definitions>

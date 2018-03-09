@@ -76,30 +76,28 @@
 	</div>
 </nav>
 <script>
-	$('#a-login').click()=>{
-		move("user/login");
+	$('#a-login').on('click', function(){
+		location.href = "${path.ctx}/move/user/login";
 	});
-	$('#a-logout').click()=>{
-		move("logout");
+	$('#a-logout').on('click', function(){
+		location.href = "${path.ctx}/logout";
 	});
-	$('#a-join').click()=>{
-		move("user/join");
+	$('#a-join').on('click', function(){
+		app.move("user/join");
 	});
-	$('#a-board').click()=>{{
-		move();
+	$('#a-board').on('click', function(){
+		app.move("board/list");
 	});
 	var $ulUtil = $("#ul-util");
 	$ulUtil.addClass("dropdown-menu");
-	$('.dropdown-menu a').eq(0).click()=>{
-		move("lotto/main");
+	$('.dropdown-menu a').eq(0).on('click', function(){
+		app.move("lotto/main");
 	});
-	$('.dropdown-menu a').eq(1).click()=>{
-		move("burgerking/main");
+	$('.dropdown-menu a').eq(1).on('click', function(){
+		app.move("burgerking/main");
 	});
-	$('.dropdown-menu a').eq(2).click()=>{
-		move("mobile/main");
+	$('.dropdown-menu a').eq(2).on('click', function(){
+		app.move("mobile/main");
 	});
-	function move(x){
-		location.href = "${path.ctx}/move/" + x;
-	}
+
 </script>

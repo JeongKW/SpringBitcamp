@@ -6,7 +6,7 @@ public class ShiftFactory extends Factory{
 
 	@Override
 	public Object create() {
-		return null;
+		return String.format("index:index.tiles");
 	}
 	
 	public String create(String p1, String p2) {

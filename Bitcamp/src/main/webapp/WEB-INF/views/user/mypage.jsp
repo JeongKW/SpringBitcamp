@@ -47,7 +47,6 @@ $(function(){
 	$('#td-phone').html(
 		('${tx.id}' === '${user.id}' && '${tx.phoneNumber}') ? '${tx.phoneNumber}' : '<a id="mobile_btn" href="#">개통하러가기</a>'
 	);
-	
 	$('#mobile_btn').on('click', function() {
 		location.href = "${path.ctx}/mobile/page";
 	});

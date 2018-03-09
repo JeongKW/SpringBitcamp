@@ -26,7 +26,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		model.addAttribute("path", factory.path());
-		return "index";
+		return shift.create().toString();
 	}
 
 	@RequestMapping(value = "/move/{dir}/{page}", method = RequestMethod.GET)

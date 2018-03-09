@@ -9,6 +9,7 @@
    <title>Home</title>
    <script src="${path.js}/jquery-3.3.1.min.js"></script>
    <script src="${path.js}/bootstrap.js"></script>
+   <script src="${path.js}/app.js"></script>
    <link rel="stylesheet" href="${path.css}/bootstrap.css" />
    <link rel="stylesheet" href="${path.css}/bootstrap-theme.css" />
    <link rel="stylesheet" href="${path.css}/style.css" />
