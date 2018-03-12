@@ -2,6 +2,10 @@ package com.bitcamp.web.mapperImpl;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bitcamp.web.command.Command;
@@ -9,7 +13,9 @@ import com.bitcamp.web.domain.BoardDTO;
 import com.bitcamp.web.mapper.BoardMapper;
 @Repository
 public class BoardMapperImpl implements BoardMapper{
-
+	private static final Logger logger = LoggerFactory.getLogger(BoardMapperImpl.class);
+	@Autowired SqlSessionTemplate sqlSession;
+	String ns = "com.bitcamp.web.mapperImpl.BoardMapperImpl.";
 	@Override
 	public void insertBoardDTO(Command cmd) {
 		// TODO Auto-generated method stub
@@ -30,8 +36,7 @@ public class BoardMapperImpl implements BoardMapper{
 
 	@Override
 	public List<BoardDTO> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(ns+"selectBoardAll");
 	}
 
 	@Override
@@ -42,14 +47,13 @@ public class BoardMapperImpl implements BoardMapper{
 
 	@Override
 	public BoardDTO selectById(Command cmd) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.info("cmd boardSeq : {}", cmd.getBoard().getBoardSeq());
+		return sqlSession.selectOne(ns+"selectBoardById", cmd);
 	}
 
 	@Override
 	public int selectCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne(ns+"countBoard");
 	}
 
 }

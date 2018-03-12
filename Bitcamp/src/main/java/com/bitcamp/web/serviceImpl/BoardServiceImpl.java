@@ -2,15 +2,17 @@ package com.bitcamp.web.serviceImpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.web.command.Command;
 import com.bitcamp.web.domain.BoardDTO;
+import com.bitcamp.web.mapper.BoardMapper;
 import com.bitcamp.web.service.BoardService;
 
 @Service
 public class BoardServiceImpl implements BoardService{
-
+	@Autowired BoardMapper mapper;
 	@Override
 	public void addBoardDTO(Command cmd) {
 		
@@ -28,7 +30,7 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public List<BoardDTO> list() {
-		return null;
+		return mapper.selectAll();
 	}
 
 	@Override
@@ -38,12 +40,12 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public BoardDTO findById(Command cmd) {
-		return null;
+		return mapper.selectById(cmd);
 	}
 
 	@Override
 	public int count() {
-		return 0;
+		return mapper.selectCount();
 	}
 
 }
