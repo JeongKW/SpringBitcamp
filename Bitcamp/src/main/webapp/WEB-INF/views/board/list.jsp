@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="container">
-	총 게시글 수 : ${bbsCount}
+	총 게시글 수 : ${page.totalCount} &nbsp; ${page.startRow} &nbsp; ${page.endRow} 
 	<a class="btn btn-default pull-right" id="write-a">글쓰기</a><br />
 	<table class="table table-striped">
 		<tr>
@@ -12,10 +12,10 @@
 			<th>작성일</th>
 		</tr>
 		<c:choose>
-			<c:when test="${bbsList ne null}">
-				<c:forEach var="bbs" items="${bbsList}" varStatus="bbsno">
+			<c:when test="${page.list ne null}">
+				<c:forEach begin="${page.startRow}" end="${page.endRow}" step="1" var="bbs" items="${page.list}" varStatus="bbsno">
 					<tr>
-						<td>${bbsno.count}</td>
+						<td>${bbs.boardSeq}</td>
 						<td><a href="#" onclick="app.boardDetail(${bbs.boardSeq}); return false;">${bbs.title}</a></td>
 						<td>${bbs.id}</td>
 						<td>${bbs.regdate}</td>
@@ -31,14 +31,18 @@
 	</table>
 	<div class="text-center">
 		<ul class="pagination">
-			<!-- <li><a href="#" aria-label="Previous"> <span
+			<c:if test="${page.blockPrev gt 1}">
+				<li><a href="#" onclick="app.boardList(${page.blockPrev}); return false;" aria-label="Previous"> <span
 					aria-hidden="true">&laquo;</span>
-			</a></li> -->
-			<c:forEach begin="1" end="${bbsPage}" step="1" varStatus="i">
-				<li><a href="#">${i.index}</a></li>
+				</a></li>
+			</c:if>
+			<c:forEach begin="${page.pageStart}" end="${page.pageEnd}" step="1" varStatus="i">
+				<li><a href="#" onclick="app.boardList(${i.index}); return false;">${i.index}</a></li>
 			</c:forEach>
-			<!-- <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li> -->
+			<c:if test="${page.blockNext ne page.pageEnd}">
+				<li><a href="#" onclick="app.boardList(${page.blockNext}); return false;" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</c:if>
 		</ul>
 	</div>
 </div>

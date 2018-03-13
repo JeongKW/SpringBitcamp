@@ -15,8 +15,8 @@ app = (()=>{
 	var move=x=>{
 		location.href = route.$()+"/move/"+x;
 	};
-	var boardList=()=>{
-		app.board.list();
+	var boardList=x=>{
+		app.board.list(x);
 	};
 	var boardDetail=x=>{
 		app.board.detail(x);
@@ -42,8 +42,8 @@ app.board=(()=>{
 	var detail=x=>{
 		location.href=route.$()+"/board/detail/"+x;
 	};
-	var list=()=>{
-		location.href=route.$()+"/board/list";
+	var list=x=>{
+		location.href=route.$()+"/board/list?nowPage="+x;
 	};
 	return {
 		onCreate:onCreate,

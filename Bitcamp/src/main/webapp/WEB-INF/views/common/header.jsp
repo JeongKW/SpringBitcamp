@@ -86,7 +86,7 @@
 		app.move("user/join");
 	});
 	$('#a-board').on('click', function(){
-		app.boardList();
+		app.boardList(1);
 	});
 	var $ulUtil = $("#ul-util");
 	$ulUtil.addClass("dropdown-menu");
