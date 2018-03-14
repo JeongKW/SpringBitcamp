@@ -21,11 +21,15 @@ app = (()=>{
 	var boardDetail=x=>{
 		app.board.detail(x);
 	};
+	var boardFileUpload=x=>{
+		app.board.fileupload(x);
+	};
 	return {
 		init:init,
 		move:move,
 		boardList:boardList,
-		boardDetail:boardDetail
+		boardDetail:boardDetail,
+		boardFileUpload:boardFileUpload
 	};
 })();
 app.board=(()=>{
@@ -41,6 +45,9 @@ app.board=(()=>{
 	};
 	var detail=x=>{
 		location.href=route.$()+"/board/detail/"+x;
+	};
+	var fileupload=x=>{
+		location.href=route.$()+"/board/fileupload/"+x;
 	};
 	var list=x=>{
 		location.href=route.$()+"/board/list?nowPage="+x;

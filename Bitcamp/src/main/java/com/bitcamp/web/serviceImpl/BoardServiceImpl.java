@@ -29,8 +29,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardDTO> list() {
-		return mapper.selectAll();
+	public List<BoardDTO> list(Command cmd) {
+		return mapper.selectAll(cmd);
 	}
 
 	@Override

@@ -35,13 +35,14 @@ public class BoardMapperImpl implements BoardMapper{
 	}
 
 	@Override
-	public List<BoardDTO> selectAll() {
-		return sqlSession.selectList(ns+"selectBoardAll");
+	public List<BoardDTO> selectAll(Command cmd) {
+		logger.info("cmd startRow : {}", cmd.getPaging().getStartRow());
+		logger.info("cmd endRow : {}", cmd.getPaging().getEndRow());
+		return sqlSession.selectList(ns+"selectBoardAll", cmd);
 	}
 
 	@Override
 	public List<BoardDTO> selectByName(Command cmd) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

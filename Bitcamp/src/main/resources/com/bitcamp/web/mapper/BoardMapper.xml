@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bitcamp.web.mapperImpl.BoardMapperImpl">
-	<select id="selectBoardAll" resultType="board">
-		SELECT board_seq AS boardSeq, title, content, regdate, id FROM Board ORDER BY regdate desc
+	<select id="selectBoardAll" resultType="board" parameterType="cmd">
+		SELECT board_seq AS boardSeq, title, content, regdate, id FROM (SELECT /*+ index_desc(board idx_board_regdate) */ rownum as numrow, board.* FROM board) WHERE numrow BETWEEN #{paging.startRow}+1 AND #{paging.endRow}+1
 	</select>
 	<select id="selectBoardByName" resultType="board" parameterType="cmd">
 		SELECT * FROM Board

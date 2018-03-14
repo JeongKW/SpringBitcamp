@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="container">
-	총 게시글 수 : ${page.totalCount} &nbsp; ${page.startRow} &nbsp; ${page.endRow} 
+	총 게시글 수 : ${page.totalCount}
 	<a class="btn btn-default pull-right" id="write-a">글쓰기</a><br />
 	<table class="table table-striped">
 		<tr>
@@ -12,8 +12,8 @@
 			<th>작성일</th>
 		</tr>
 		<c:choose>
-			<c:when test="${page.list ne null}">
-				<c:forEach begin="${page.startRow}" end="${page.endRow}" step="1" var="bbs" items="${page.list}" varStatus="bbsno">
+			<c:when test="${list ne null}">
+				<c:forEach var="bbs" items="${list}">
 					<tr>
 						<td>${bbs.boardSeq}</td>
 						<td><a href="#" onclick="app.boardDetail(${bbs.boardSeq}); return false;">${bbs.title}</a></td>
@@ -30,17 +30,24 @@
 		</c:choose>
 	</table>
 	<div class="text-center">
-		<ul class="pagination">
-			<c:if test="${page.blockPrev gt 1}">
-				<li><a href="#" onclick="app.boardList(${page.blockPrev}); return false;" aria-label="Previous"> <span
+		<ul id="page-util" class="pagination">
+			<c:if test="${page.blockPrev}">
+				<li><a href="#" onclick="app.boardList(${page.pageStart-1}); return false;" aria-label="Previous"> <span
 					aria-hidden="true">&laquo;</span>
 				</a></li>
 			</c:if>
 			<c:forEach begin="${page.pageStart}" end="${page.pageEnd}" step="1" varStatus="i">
-				<li><a href="#" onclick="app.boardList(${i.index}); return false;">${i.index}</a></li>
+				<c:choose>
+					<c:when test="${page.nowPage eq i.index}">
+						<li class="active"><a href="#" onclick="app.boardList(${i.index}); return false;">${i.index}</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="#" onclick="app.boardList(${i.index}); return false;">${i.index}</a></li>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
-			<c:if test="${page.blockNext ne page.pageEnd}">
-				<li><a href="#" onclick="app.boardList(${page.blockNext}); return false;" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+			<c:if test="${page.blockNext}">
+				<li><a href="#" onclick="app.boardList(${page.pageEnd+1}); return false;" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</c:if>
 		</ul>
